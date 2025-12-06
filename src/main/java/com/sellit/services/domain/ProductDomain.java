@@ -1,22 +1,14 @@
-package com.sellit.domain;
-
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package com.sellit.services.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Product {
-    
+public class ProductDomain {
     private UUID id;
     
-    @NotBlank(message = "Name cannot be blank")
     private String name;
-    
-    @NotNull(message = "Price cannot be null")
-    @DecimalMin(value = "0.01", message = "Price must be greater than 0")
+
     private BigDecimal price;
     
     private String description;
@@ -29,11 +21,11 @@ public class Product {
     
     private boolean active;
     
-    public Product() {}
+    public ProductDomain() {}
     
-    public Product(UUID id, String name, BigDecimal price, String description, 
-                   Integer quantityInStock, LocalDateTime createdAt, 
-                   LocalDateTime updatedAt, boolean active) {
+    public ProductDomain(UUID id, String name, BigDecimal price, String description,
+                         Integer quantityInStock, LocalDateTime createdAt,
+                         LocalDateTime updatedAt, boolean active) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -96,8 +88,8 @@ public class Product {
         public ProductBuilder updatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; return this; }
         public ProductBuilder active(boolean active) { this.active = active; return this; }
         
-        public Product build() {
-            return new Product(id, name, price, description, quantityInStock, createdAt, updatedAt, active);
+        public ProductDomain build() {
+            return new ProductDomain(id, name, price, description, quantityInStock, createdAt, updatedAt, active);
         }
     }
 }

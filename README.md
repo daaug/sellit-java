@@ -2,8 +2,8 @@
 
 ### Products
 
-- `POST /api/v1/products` - Create a new product
-- `GET /api/v1/products/{id}` - Get product by ID
+- `POST /api/v1/products` - Create a new productDomain
+- `GET /api/v1/products/{id}` - Get productDomain by ID
 
 **Access the API**
    - Application: http://localhost:8081

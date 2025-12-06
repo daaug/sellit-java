@@ -1,4 +1,4 @@
-package com.sellit.dto.response;
+package com.sellit.controller.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -6,19 +6,19 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Schema(description = "Product response")
+@Schema(description = "ProductDomain response")
 public class ProductResponse {
     
-    @Schema(description = "Product ID", example = "123e4567-e89b-12d3-a456-426614174000")
+    @Schema(description = "ProductDomain ID", example = "123e4567-e89b-12d3-a456-426614174000")
     private UUID id;
     
-    @Schema(description = "Product name", example = "Notebook Dell")
+    @Schema(description = "ProductDomain name", example = "Notebook Dell")
     private String name;
     
-    @Schema(description = "Product price", example = "2999.99")
+    @Schema(description = "ProductDomain price", example = "2999.99")
     private BigDecimal price;
     
-    @Schema(description = "Product description", example = "High performance notebook")
+    @Schema(description = "ProductDomain description", example = "High performance notebook")
     private String description;
     
     @Schema(description = "Quantity in stock", example = "10")
@@ -30,10 +30,10 @@ public class ProductResponse {
     @Schema(description = "Last update date", example = "2023-12-01T10:30:00")
     private LocalDateTime updatedAt;
     
-    @Schema(description = "Product status", example = "true")
+    @Schema(description = "ProductDomain status", example = "true")
     private boolean active;
     
-    @Schema(description = "Response message", example = "Product created successfully")
+    @Schema(description = "Response message", example = "ProductDomain created successfully")
     private String message;
     
     public ProductResponse() {}

@@ -1,0 +1,20 @@
+services:
+  mysql:
+    container_name: sellit-java-mysql
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=sellit
+      - MYSQL_USER=sellit
+      - MYSQL_PASSWORD=123456
+    ports:
+      - 3306:3306
+    networks:
+      sellit-java-nw:
+        ipv4_address: 172.100.0.10
+
+networks:
+  sellit-java-nw:
+    ipam:
+      config:
+        - subnet: 172.100.0.0/24
