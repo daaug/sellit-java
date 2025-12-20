@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ProductRepositoryImp implements IProductRepository {
 
-
     private final ProductRepository productRepository;
 
     public ProductRepositoryImp(ProductRepository productRepository) {
@@ -37,5 +36,9 @@ public class ProductRepositoryImp implements IProductRepository {
         productDomainSaved.setUpdatedAt(productSaved.getUpdatedAt());
 
         return productDomainSaved;
+    }
+
+    public Iterable<ProductEntity> getAllProducts() {
+        return this.productRepository.findAll();
     }
 }

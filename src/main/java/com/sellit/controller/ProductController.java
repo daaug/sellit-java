@@ -1,5 +1,6 @@
 package com.sellit.controller;
 
+import com.sellit.repository.entity.ProductEntity;
 import com.sellit.services.domain.ProductDomain;
 import com.sellit.controller.request.ProductRequest;
 import com.sellit.controller.response.ProductResponse;
@@ -23,9 +24,8 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping
+    @PostMapping("/cadastro")
     public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody ProductRequest productRequest) {
-
         ProductDomain productDomain = ProductDomain.builder()
                 .id(null)
                 .name(productRequest.getName())
@@ -44,4 +44,16 @@ public class ProductController {
         ProductResponse response = new ProductResponse("ProductDomain with ID: " + id + " would be retrieved here");
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/all")
+    public @ResponseBody Iterable<ProductEntity> getAllProducts() {
+        return this.productService.getAllProducts();
+    }
+
+    //@GetMapping("/all")
+    //public ResponseEntity<ProductResponse> getAllProducts() {
+    //    ProductResponse response = new ProductResponse(this.productService.getAllProducts());
+    //    return ResponseEntity.ok(response);
+    //}
+
 }
